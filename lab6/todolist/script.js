@@ -6,74 +6,87 @@ const todoList = document.querySelector("#todo-list");
 let todos = [];
 
 function addTodo() {
-  //console.log("Hello, guys.");
-  const todoText = todoInput.value.trim();
-  if (todoText.length > 0) {
+    const todoText = todoInput.value.trim();
+
+    // ตรวจสอบความยาวของข้อความ
+    if (todoText.length === 0) {
+        alert("Please enter a task!");
+        return;
+    }
+    if (todoText.length > 50) {
+        alert("Task should not exceed 50 characters!");
+        return;
+    }
+
     const todo = {
-      id: Date.now(),
-      text: todoText,
-      completed: false,
+        id: Date.now(),
+        text: todoText,
+        completed: false,
     };
 
     todos.push(todo);
-
     todoInput.value = "";
 
     renderTodos();
-  }
 }
 
 function deleteTodo(id) {
-  //console.log(id);
-  todos = todos.filter((todo) => todo.id !== id);
-  renderTodos();
+    const confirmDelete = confirm("Are you sure you want to delete this task?");
+    if (confirmDelete) {
+        todos = todos.filter((todo) => todo.id !== id);
+        renderTodos();
+    }
 }
 
 function toggleCompleted(id) {
-  // console.log(id);
-  //let a = 1;
-  //a = a + 1; //a = 2
-  todos = todos.map((todo) => {
-    if (todo.id === id) {
-      todo.completed = !todo.completed;
-    }
-    return todo;
-  });
-  renderTodos();
+    todos = todos.map((todo) => {
+        if (todo.id === id) {
+            todo.completed = !todo.completed;
+        }
+        return todo;
+    });
+    renderTodos();
 }
 
 function renderTodos() {
-  todoList.innerHTML = "";
+    todoList.innerHTML = "";
 
-  todos.forEach((todo) => {
-    const todoItem = document.createElement("li");
-    const todoText = document.createElement("span");
-    const todoDeleteButton = document.createElement("button");
-    const myCheck = document.createElement("INPUT");
-          myCheck.setAttribute("type", "checkbox");
+    todos.forEach((todo) => {
+        const todoItem = document.createElement("li");
+        const todoText = document.createElement("span");
+        const todoCheck = document.createElement("input");
+        const todoDeleteButton = document.createElement("button");
 
-    todoText.textContent = todo.text;
-    todoDeleteButton.textContent = "Delete";
+        todoText.textContent = todo.text;
+        todoCheck.type = "checkbox";
+        todoCheck.checked = todo.completed;
+        todoDeleteButton.textContent = "Delete";
 
-    todoDeleteButton.addEventListener("click", () => deleteTodo(todo.id));
+        // เพิ่ม event สำหรับปุ่มเช็คถูก
+        todoCheck.addEventListener("change", () => toggleCompleted(todo.id));
 
-    if (todo.completed) {
-      todoItem.classList.add("completed");
-    }
+        // เพิ่ม event สำหรับลบ
+        todoDeleteButton.addEventListener("click", () => deleteTodo(todo.id));
 
-    todoItem.addEventListener("click", () => toggleCompleted(todo.id));
-  
-    todoItem.appendChild(todoText);
-    todoItem.appendChild(todoDeleteButton);
+        if (todo.completed) {
+            todoItem.classList.add("completed");
+            todoText.style.textDecoration = "line-through"; // ขีดคร่อมข้อความ
+        } else {
+            todoText.style.textDecoration = "none";
+        }
 
+        todoItem.appendChild(todoCheck);
+        todoItem.appendChild(todoText);
+        todoItem.appendChild(todoDeleteButton);
 
-    todoList.appendChild(todoItem);
-  });
+        todoList.appendChild(todoItem);
+    });
 }
 
+// เพิ่ม event listener สำหรับฟอร์ม
 form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  addTodo();
+    event.preventDefault();
+    addTodo();
 });
 
 renderTodos();
