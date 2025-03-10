@@ -1,152 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LAB7 - JavaScript DOM Challenges</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            padding: 20px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: left;
-        }
-        th {
-            background-color: #f4f4f4;
-        }
-        button {
-            padding: 5px 10px;
-            cursor: pointer;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
-</head>
-<body>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+        padding: 20px;
+      }
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .profile {
+        display: flex;
+        align-items: center;
+      }
+      .profile img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin-right: 10px;
+        object-fit: cover;
+      }
 
-    <h1>LAB7 - JavaScript DOM Challenges</h1>
-    <p><strong>Name:</strong> Woravit Suwan <br>
-       <strong>Student ID:</strong> 67543210049-1 <br>
-       <strong>Section:</strong> 2 <br>
-       <strong>Subject:</strong> ENGSE611</p>
+      .profile-info {
+        list-style: none;
+        padding: 0;
+      }
+      .profile-info li {
+        margin: 5px 0;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+      }
+      th {
+        background-color: #f4f4f4;
+      }
+      button {
+        padding: 5px 10px;
+        cursor: pointer;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div>
+        <h1>LAB7 - JavaScript DOM Challenges</h1>
+      </div>
+      <div class="profile">
+        <img
+          src="5172743C-4E96-4208-B646-2CBA1A452FDD.jpeg"
+          alt="Profile Picture"
+        />
+        <ul class="profile-info">
+          <li><strong>Name:</strong> Woravit Suwan</li>
+          <li><strong>Student ID:</strong> 67543210049-1</li>
+          <li><strong>Section:</strong> 1</li>
+          <li><strong>Subject:</strong> ENGSE611</li>
+        </ul>
+      </div>
+    </div>
 
     <table>
-        <tr>
-            <th>#</th>
-            <th>Exercise</th>
-            <th>Action</th>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>Changing Text Content</td>
-            <td>
-                <a href="./Exercise1/changing01.html" target="_blank">
-                    <button>Show me</button>
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Modifying CSS Styles</td>
-            <td>
-                <a href="./Exercise2/modifying02.html" target="_blank">
-                    <button>Show me</button>
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>Adding and Removing Classes</td>
-            <td>
-                <a href="./Exercise3/adding03.html" target="_blank">
-                    <button>Show me</button>
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>Creating and Appending Elements</td>
-            <td>
-                <a href="./Exercise4/create04.html" target="_blank">
-                    <button>Show me</button>
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <td>5</td>
-            <td>Removing Elements</td>
-            <td>
-                <a href="./Exercise5/remove05.html" target="_blank">
-                    <button>Show me</button>
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <td>6</td>
-            <td>Handling Events</td>
-            <td>
-                <a href="./Exercise6/handding06.html" target="_blank">
-                    <button>Show me</button>
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <td>7</td>
-            <td>Traversing the DOM</td>
-            <td>
-                <a href="./Exercise7/traversing07.html" target="_blank">
-                    <button>Show me</button>
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <td>8</td>
-            <td>Manipulating Form Elements</td>
-            <td>
-                <a href="./Exercise8/manipula08.html" target="_blank">
-                    <button>Show me</button>
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <td>9</td>
-            <td>Fetching and Displaying Data</td>
-            <td>
-                <a href="./Exercise9/fetching09.html" target="_blank">
-                    <button>Show me</button>
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <td>10</td>
-            <td>Animations and Transitions</td>
-            <td>
-                <a href="./Exercise10/animation10.html" target="_blank">
-                    <button>Show me</button>
-                </a>
-            </td>
-        </tr>
+      <tr>
+        <th>#</th>
+        <th>Exercise</th>
+        <th>Action</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Changing Text Content</td>
+        <td>
+          <a href="./Exercise1/changing01.html" target="_blank"
+            ><button>Show me</button></a
+          >
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Modifying CSS Styles</td>
+        <td>
+          <a href="./Exercise2/modifying02.html" target="_blank"
+            ><button>Show me</button></a
+          >
+        </td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Adding and Removing Classes</td>
+        <td>
+          <a href="./Exercise3/adding03.html" target="_blank"
+            ><button>Show me</button></a
+          >
+        </td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Creating and Appending Elements</td>
+        <td>
+          <a href="./Exercise4/create04.html" target="_blank"
+            ><button>Show me</button></a
+          >
+        </td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Removing Elements</td>
+        <td>
+          <a href="./Exercise5/remove05.html" target="_blank"
+            ><button>Show me</button></a
+          >
+        </td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Handling Events</td>
+        <td>
+          <a href="./Exercise6/handding06.html" target="_blank"
+            ><button>Show me</button></a
+          >
+        </td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>Traversing the DOM</td>
+        <td>
+          <a href="./Exercise7/traversing07.html" target="_blank"
+            ><button>Show me</button></a
+          >
+        </td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>Manipulating Form Elements</td>
+        <td>
+          <a href="./Exercise8/manipula08.html" target="_blank"
+            ><button>Show me</button></a
+          >
+        </td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>Fetching and Displaying Data</td>
+        <td>
+          <a href="./Exercise9/fetching09.html" target="_blank"
+            ><button>Show me</button></a
+          >
+        </td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>Animations and Transitions</td>
+        <td>
+          <a href="./Exercise10/animation10.html" target="_blank"
+            ><button>Show me</button></a
+          >
+        </td>
+      </tr>
     </table>
-
-    <script>
-        function openExercise(num) {
-            window.open(`exercise${num}.html`, '_blank');
-        }
-    </script>
-
-</body>
+  </body>
 </html>
